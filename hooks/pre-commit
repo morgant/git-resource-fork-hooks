@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if ! which SplitForks > /dev/null ; then
+	echo "ERROR! 'SplitForks' is not in your path! Unable to proceed."
+	exit 1
+fi
+
+SplitForks .
+find . -name "._*" -exec git add -f {} +
+git commit --no-verify -m "Added split resource forks."

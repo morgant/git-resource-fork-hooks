@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if ! which FixupResourceForks > /dev/null ; then
+	echo "ERROR! 'FixupResourceForks' is not in your path! Unable to proceed."
+	exit 1
+fi
+
+FixupResourceForks .
