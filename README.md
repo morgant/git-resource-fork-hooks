@@ -13,8 +13,8 @@ INSTALLING
 ----------
 
 1. Install Xcode Command Line Tools, if you haven't already done so.
-2. ...
-3. Profit
+2. Clone this repository (e.g. `git clone git@github.com:morgant/git-resource-fork-hooks.git`).
+3. Copy the contents of the `hooks/` directory to the `.git/hooks/` directory of the project containing Mac files with resource forks (if you have any Git Hooks you're already using, you may need to manually merge them).
 
 FURTHER READING
 ---------------
