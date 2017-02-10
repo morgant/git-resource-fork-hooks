@@ -1,8 +1,17 @@
 #!/bin/bash
 
-if ! which FixupResourceForks > /dev/null ; then
-	echo "ERROR! 'FixupResourceForks' is not in your path! Unable to proceed."
+split_forks_bin='/usr/bin/SplitForks'
+fix_forks_bin='/System/Library/CoreServices/FixupResourceForks'
+
+if [ ! -x "${split_forks_bin}" ]; then
+	echo "ERROR! Expected 'SplitForks' binary to exist and be executable at '${split_forks_bin}, but it's not! Unable to proceed."
 	exit 1
 fi
 
-FixupResourceForks .
+if [ ! -x "${fix_forks_bin}" ] ; then
+	echo "ERROR! Expected 'FixupResourceForks' to exist and be executable at "${fix_forks_path}", but it's not! Unable to proceed."
+	exit 1
+fi
+
+${fix_forks_bin} .
+find . ! -iname ".git" -type f -exec "${split_forks_bin}" {} \;

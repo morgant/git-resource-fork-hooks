@@ -1,10 +1,11 @@
 #!/bin/bash
 
-if ! which SplitForks > /dev/null ; then
-	echo "ERROR! 'SplitForks' is not in your path! Unable to proceed."
+split_forks_bin='/usr/bin/SplitForks'
+
+if [ ! -x "${split_forks_bin}" ]; then
+	echo "ERROR! Expected 'SplitForks' binary to exist and be executable at '${split_forks_bin}, but it's not! Unable to proceed."
 	exit 1
 fi
 
-SplitForks .
+find . ! -iname ".git" -type f -exec "${split_forks_bin}" {} \;
 find . -name "._*" -exec git add -f {} +
-git commit --no-verify -m "Added split resource forks."
