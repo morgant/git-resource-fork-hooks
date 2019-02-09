@@ -22,3 +22,5 @@ FURTHER READING
 * The [Dash-Board-for-Newton-OS README](https://github.com/masonmark/Dash-Board-for-Newton-OS/blob/master/README.md) for an exciting look behind the scenes of recovering & releasing the source code for NewtonOS software on GitHub (touching on the resource forks issue, of course.)
 * [AppleDouble format on ArchiveTeam.org](http://fileformats.archiveteam.org/wiki/AppleDouble)
 * [Git Hooks documentation](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
+* [SplitForks(1)](http://www.manpagez.com/man/1/SplitForks/)
+* [FixupResourceForks(1)](http://www.manpagez.com/man/1/FixupResourceForks/)
