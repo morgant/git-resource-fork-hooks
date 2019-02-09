@@ -1,14 +1,14 @@
 #!/usr/bin/env roundup
 
+source "helpers.sh"
+
 # Rez-test.sh
 #
 # Test suite to confirm that Rez works the way we expect
 
 describe "Rez"
 
-rsrc_file="Test"
-rsrc_str="Resource String"
-
+# setup & teardown
 before() {
   touch "${rsrc_file}"
 }
@@ -18,15 +18,7 @@ after() {
   if test -e "${rsrc_file}.r"; then rm "${rsrc_file}.r"; fi
 }
 
-make_str_rsrc() {
-  cat << EOM > "${rsrc_file}.r"
-resource 'STR ' (128) {
-  "${rsrc_str}"
-};
-EOM
-  Rez -F Carbon Carbon.r "${rsrc_file}.r" -o "${rsrc_file}"
-}
-
+# test cases
 it_new_file_has_no_resource_fork() {
   test -z "$(cat "${rsrc_file}/..namedfork/rsrc")"
 }

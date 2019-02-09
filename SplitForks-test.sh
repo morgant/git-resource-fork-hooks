@@ -1,24 +1,12 @@
 #!/usr/bin/env roundup
 
+source "helpers.sh"
+
 # SplitForks-test.sh
 #
 # Test suite to confirm that SplitForks works the way we expect
 
 describe "SplitForks"
-
-# global variables
-rsrc_file="Test"
-rsrc_str="Resource String"
-
-# helper methods
-make_str_rsrc() {
-  cat << EOM > "${rsrc_file}.r"
-resource 'STR ' (128) {
-  "${rsrc_str}"
-};
-EOM
-  Rez -F Carbon Carbon.r "${rsrc_file}.r" -o "${rsrc_file}"
-}
 
 # setup & teardown
 before() {
@@ -31,7 +19,7 @@ after() {
   if test -e "._${rsrc_file}"; then rm "._${rsrc_file}"; fi
 }
 
-# individual test cases
+# test cases
 it_makes_apple_double_file_from_a_valid_resource_fork() {
   make_str_rsrc
   SplitForks "${rsrc_file}"
