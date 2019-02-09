@@ -38,7 +38,7 @@ it_makes_a_resource_fork_when_none_exists() {
 
 it_does_not_create_an_apple_double_resource_fork() {
   make_str_rsrc
-  test -e "${rsrc_file}/..namedfork/rsrc"
+  test ! -e "._${rsrc_file}"
 }
 
 it_makes_a_string_resource_given_a_valid_dot_r_file() {
