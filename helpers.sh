@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 # global variables
 rsrc_file="Test"
 rsrc_str="Resource String"
@@ -10,4 +12,9 @@ resource 'STR ' (128) {
 };
 EOM
   Rez -F Carbon Carbon.r "${rsrc_file}.r" -o "${rsrc_file}"
+}
+
+split_str_rsrc() {
+  make_str_rsrc
+  SplitForks -s "${rsrc_file}"
 }
